@@ -31,7 +31,7 @@ $user_name = 'Екатерина'; // укажите здесь ваше имя
 
             <?php if ($is_auth == 1): ?>
                 <div class="user-menu__logged">
-                    <p><?php print($user_name);?></p>
+                    <p><?=$user_name ?></p>
                 </div>
             <?php else: ?>
                 <ul class="user-menu__list">
