@@ -51,7 +51,7 @@
         ]
     ];
 
-    function setPrice ($number) {
+    function formatPrice ($number) {
         $number = ceil($number);
         if ( $number >= 1000) {
             $number = number_format($number, 0, '', ' ');
@@ -137,7 +137,7 @@
                         <div class="lot__state">
                             <div class="lot__rate">
                                 <span class="lot__amount">Стартовая цена</span>
-                                <span class="lot__cost"><?=setPrice($value['price']);?></span>
+                                <span class="lot__cost"><?=formatPrice($value['price']);?></span>
                             </div>
                             <div class="lot__timer timer">
                                 12:23
