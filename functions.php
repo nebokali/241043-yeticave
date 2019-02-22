@@ -25,3 +25,5 @@
       $number = $number." ₽";
       return $number;
   }
+
+?>
