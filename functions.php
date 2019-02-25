@@ -26,11 +26,9 @@
       return $number;
   }
 
-  function showTimeLeft () {  
-      date_default_timezone_set('Europe/Moscow');
-
+  function showTimeLeft ($timeLimit) {  
       $currentTime = date_create('now');
-      $deadlineTime = date_create('tomorrow');
+      $deadlineTime = date_create($timeLimit);
       return date_interval_format(date_diff($currentTime, $deadlineTime), '%H:%I');
   }
 
