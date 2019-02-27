@@ -50,4 +50,6 @@
             'url' => 'img/lot-6.jpg'
         ]
     ];
+
+    $deadline = date_create('tomorrow');
 ?>
