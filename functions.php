@@ -26,9 +26,9 @@
       return $number;
   }
 
-  function showTimeLeft ($timeLimit) {  
+  function showTimeLeft ($deadline) {  
       $currentTime = date_create('now');
-      $deadlineTime = date_create($timeLimit);
+      $deadlineTime = $deadline;
       return date_interval_format(date_diff($currentTime, $deadlineTime), '%H:%I');
   }
 

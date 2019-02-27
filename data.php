@@ -51,5 +51,5 @@
         ]
     ];
 
-    $deadline = 'tomorrow';
+    $deadline = date_create('tomorrow');
 ?>
