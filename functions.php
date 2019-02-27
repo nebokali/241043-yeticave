@@ -28,8 +28,8 @@
 
   function showTimeLeft ($deadline) {  
       $currentTime = date_create('now');
-      $deadlineTime = $deadline;
-      return date_interval_format(date_diff($currentTime, $deadlineTime), '%H:%I');
+      $deadline;
+      return date_interval_format(date_diff($currentTime, $deadline), '%H:%I');
   }
 
 ?>
