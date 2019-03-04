@@ -5,14 +5,14 @@ USE yeticave;
 
 CREATE TABLE categories (
   id INT AUTO_INCREMENT PRIMARY KEY,
-  category_id CHAR(50) NOT NULL UNIQUE
+  category_name VARCHAR(250) NOT NULL
 );
 
 CREATE TABLE lots (
   id INT AUTO_INCREMENT PRIMARY KEY,
   creation_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  lot_name CHAR(250) NOT NULL,
-  description CHAR(250) NOT NULL,
+  lot_name VARCHAR(250) NOT NULL,
+  description TEXT NOT NULL,
   img_url TEXT NOT NULL,
   start_price INT NOT NULL,
   deadline_date TIMESTAMP NOT NULL,
@@ -29,16 +29,18 @@ CREATE TABLE bets (
   user_id INT NOT NULL,
   lot_id INT NOT NULL
 );
+CREATE INDEX user_lot ON lots (id_lot, id_user);
 
 CREATE TABLE users (
   id INT AUTO_INCREMENT PRIMARY KEY,
   registration_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  email CHAR(250) NOT NULL UNIQUE,
-  user_name CHAR(250) NOT NULL,
-  user_password CHAR(250) NOT NULL,
+  email VARCHAR(250) NOT NULL UNIQUE,
+  user_name VARCHAR(250) NOT NULL,
+  user_password VARCHAR(250) NOT NULL,
   avatar_url TEXT,
-  contacts CHAR(250)
+  contacts VARCHAR(250)
 );
+CREATE INDEX email_password ON lots (email, user_password);
 
 ALTER TABLE lots ADD FOREIGN KEY (author_id) REFERENCES users(id) ON DELETE CASCADE;
 ALTER TABLE lots ADD FOREIGN KEY (winner_id) REFERENCES users(id) ON DELETE CASCADE;
