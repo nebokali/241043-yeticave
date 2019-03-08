@@ -33,7 +33,7 @@ SELECT category_name FROM categories;
 SELECT l.lot_name, l.start_price, l.img_url, MAX(b.price), c.category_name
   FROM lots l
   JOIN categories c
-    ON l.category_name = c.id
+    ON l.category_id = c.id
   JOIN bets b
     ON l.id = b.lot_id
  WHERE l.deadline_date > CURRENT_DATE() GROUP BY b.lot_id ORDER BY l.creation_date DESC;
@@ -42,7 +42,7 @@ SELECT l.lot_name, l.start_price, l.img_url, MAX(b.price), c.category_name
 SELECT l.*, c.category_name
   FROM lots l
   JOIN categories c
-    ON l.category_name = c.id
+    ON l.category_id = c.id
  WHERE l.id = 2;
 
 /*Обновить название лота по его идентификатору*/
